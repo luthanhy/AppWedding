@@ -164,8 +164,8 @@ class WeddingUI extends StatelessWidget {
                 ],
               ),
             ),
-            // Thêm phần text căn giữa
             SizedBox(height: 40),
+            // Thêm phần text căn giữa
             Center(
               child: Text(
                 "Bắt đầu đám cưới như mơ của bạn với một chiếc thiệp online ngay hôm nay!",
