@@ -2,6 +2,10 @@
 
 import 'package:flutter/material.dart';
 
+void main() {
+  runApp(MyApp());
+}
+
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -64,14 +68,14 @@ class WeddingUI extends StatelessWidget {
             Stack(
               alignment: Alignment.center,
               children: [
-                Image.asset(
-                  'assets/laptop_background.png', // Hình ảnh laptop
+                Image.network(
+                  'https://marketplace.canva.com/print-mockup/bundle/FTpibBRols4/corners%3Asquare%2Cproductsize%3Aportrait%2Csurface%3Amarketplace/surface%3Amarketplace/EAEM7hvK84Y/1/0/1143w/canva-%25C4%2591en-v%25C3%25A0-v%25C3%25A0ng-%25C4%2591%25E1%25BB%2593ng-%25C4%2591%25C6%25B0%25E1%25BB%259Dng-k%25E1%25BA%25BB-gi%25E1%25BA%25A3n-d%25E1%25BB%258B-%25E1%25BA%25A3nh-gh%25C3%25A9p-l%25E1%25BB%2585-c%25C6%25B0%25E1%25BB%259Bi-thi%25E1%25BB%2587p-m%25E1%25BB%259Di-NACd0htyoNE.jpg?sig=4261a52e8748ec964c6911465a63676a&width=800', // Link hình ảnh laptop
                   width: 300,
                 ),
                 Positioned(
                   bottom: 50,
-                  child: Image.asset(
-                    'assets/mobile_preview.png', // Hình ảnh điện thoại
+                  child: Image.network(
+                    'https://marketplace.canva.com/print-mockup/bundle/FTpibBRols4/corners%3Asquare%2Cproductsize%3Aportrait%2Csurface%3Amarketplace/surface%3Amarketplace/EAEM7hvK84Y/1/0/1143w/canva-%25C4%2591en-v%25C3%25A0-v%25C3%25A0ng-%25C4%2591%25E1%25BB%2593ng-%25C4%2591%25C6%25B0%25E1%25BB%259Dng-k%25E1%25BA%25BB-gi%25E1%25BA%25A3n-d%25E1%25BB%258B-%25E1%25BA%25A3nh-gh%25C3%25A9p-l%25E1%25BB%2585-c%25C6%25B0%25E1%25BB%259Bi-thi%25E1%25BB%2587p-m%25E1%25BB%259Di-NACd0htyoNE.jpg?sig=4261a52e8748ec964c6911465a63676a&width=800', // Link hình ảnh điện thoại
                     width: 150,
                   ),
                 ),
@@ -161,7 +165,6 @@ class WeddingUI extends StatelessWidget {
               ),
             ),
             SizedBox(height: 40),
-            // Thêm phần text căn giữa
             Center(
               child: Text(
                 "Bắt đầu đám cưới như mơ của bạn với một chiếc thiệp online ngay hôm nay!",
@@ -174,7 +177,6 @@ class WeddingUI extends StatelessWidget {
               ),
             ),
             SizedBox(height: 20),
-            // Thêm button ở giữa
             Center(
               child: ElevatedButton(
                 onPressed: () {
@@ -193,9 +195,92 @@ class WeddingUI extends StatelessWidget {
                 ),
               ),
             ),
+            SizedBox(height: 10),
+            Center(
+              child: Text(
+                "Sở hữu Thiệp online dễ Dàng với chi phí hấp dẫn",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.normal,
+                  color: Colors.black54,
+                ),
+              ),
+            ),
+            SizedBox(height: 40),
+            // Thêm 3 khối hộp
+            _buildBox("Basic", "168,000đ", "Trải nghiệm tiêu chuẩn"),
+            SizedBox(height: 16),
+            _buildBox("Standard", "268,000đ", "Trải nghiệm nâng cao"),
+            SizedBox(height: 16),
+            _buildBox("Premium", "368,000đ", "Trải nghiệm VIP"),
             SizedBox(height: 40),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget _buildBox(String title, String price, String description) {
+    return Container(
+      width: 240,
+      height: 188,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(12),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black26,
+            blurRadius: 6,
+            offset: Offset(0, 3),
+          ),
+        ],
+      ),
+      padding: EdgeInsets.all(16),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            title,
+            style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+              color: Colors.pinkAccent,
+            ),
+          ),
+          Text(
+            price,
+            style: TextStyle(
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+              color: Colors.black,
+            ),
+          ),
+          Text(
+            description,
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: 16,
+              color: Colors.black54,
+            ),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              print("Xem chi tiết $title");
+            },
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.pink,
+              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(8),
+              ),
+            ),
+            child: Text(
+              "Xem chi tiết",
+              style: TextStyle(fontSize: 16),
+            ),
+          ),
+        ],
       ),
     );
   }
