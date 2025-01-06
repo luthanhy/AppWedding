@@ -1,70 +1,74 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'my_button.dart';
+
 class MyCard extends StatelessWidget {
+  final String title;
+  final String text;
+  final String? imageUrl;
+  final List<MyButton> buttons;
+
+  const MyCard({
+    Key? key,
+    required this.title,
+    required this.text,
+    this.imageUrl,
+    required this.buttons,
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text("My Card Example")),
-      body: Center(
-        child: Card(
-          elevation: 5,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10),
-          ),
-          child: Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  "TRẢI NGHIỆM TẠI MEWEDDING",
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                ),
-                SizedBox(height: 10),
-                Text(
-                  "Dâu Rể chỉ cần chọn mẫu thiệp, gửi ảnh và thông tin, "
-                      "còn lại meWedding sẽ lo từ A-Z. Dâu rể chỉ chờ duyệt và sửa cho vừa ý.",
-                  style: TextStyle(fontSize: 16),
-                ),
-                SizedBox(height: 20),
-                // First button
-                ElevatedButton.icon(
-                  onPressed: () {},
-                  icon: Icon(Icons.edit, color: Colors.white),
-                  label: Text("Chỉnh sửa thiệp không giới hạn"),
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.blue,
-                    padding: EdgeInsets.symmetric(vertical: 15),
-                  ),
-                ),
-                SizedBox(height: 15),
-                // Second button
-                ElevatedButton.icon(
-                  onPressed: () {},
-                  icon: Icon(Icons.adjust, color: Colors.white),
-                  label: Text("Tùy biến thiệp, thay đổi theo ý Dâu Rể"),
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.green,
-                    padding: EdgeInsets.symmetric(vertical: 15),
-                  ),
-                ),
-                SizedBox(height: 15),
-                // Third button
-                ElevatedButton.icon(
-                  onPressed: () {},
-                  icon: Icon(Icons.design_services, color: Colors.white),
-                  label: Text("Designer trên 3 năm kinh nghiệm\nlàm thiệp sửa thiệp hỗ trợ Trọn Đời"),
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.orange,
-                    padding: EdgeInsets.symmetric(vertical: 15),
-                  ),
-                ),
-              ],
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: Colors.white54,
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          if (imageUrl != null)
+            ClipRRect(
+              borderRadius: BorderRadius.circular(8),
+              child: Image(
+                image: NetworkImage(imageUrl!),
+                height: 150,
+                width: double.infinity,
+                fit: BoxFit.cover,
+              ),
+            ),
+          if (imageUrl != null) const SizedBox(height: 10),
+          Text(
+            title,
+            style: const TextStyle(
+              color: Colors.white,
+              fontSize: 24,
+              fontWeight: FontWeight.w900,
             ),
           ),
-        ),
+          const SizedBox(height: 10),
+          Text(
+            text,
+            textAlign: TextAlign.center,
+            style: const TextStyle(
+              color: Colors.white,
+              fontSize: 16,
+            ),
+          ),
+          const SizedBox(height: 20),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: buttons.map((button) {
+              return Padding(
+                padding: const EdgeInsets.only(bottom: 8.0),
+                child: button,
+              );
+            }).toList(),
+          ),
+        ],
       ),
     );
   }
 }
-
