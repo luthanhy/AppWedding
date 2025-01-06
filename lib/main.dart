@@ -7,6 +7,6 @@ void main() {
   if (config == 1) {
     runApp(MyApp());
   } else {
-    runApp(WeddingApp());
+    runApp(Weddingpage());
   }
 }
