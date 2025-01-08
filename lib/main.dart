@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import './screen/FTUE/index.dart'; // Đảm bảo bạn import màn hình FTUE đúng
+import './screen/FTUE/index.dart'; // Kiểm tra đường dẫn import
+import './screen/Login/index.dart'; // Kiểm tra đường dẫn import
 
-// Đây là widget chính của ứng dụng của bạn.
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -10,13 +10,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home:
-          IntroductionAnimationScreen(), // Gọi màn hình FTUE thay vì Scaffold mặc định
+      home: const LoginScreen(), // Sử dụng FTUE nếu cần
     );
   }
 }
 
-// Hàm main khởi tạo ứng dụng của bạn
 void main() {
-  runApp(MyApp()); // Gọi ứng dụng MyApp
+  runApp(MyApp());
 }
