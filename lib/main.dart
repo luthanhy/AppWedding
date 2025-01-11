@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import './screen/FTUE/index.dart'; // Kiểm tra đường dẫn import
 import './screen/Login/index.dart'; // Kiểm tra đường dẫn import
 import './screen/HomePage/index.dart'; // Kiểm tra đường dẫn import
+import './screen/HomePage/bookmark/index.dart';
 
 class MyApp extends StatelessWidget {
   @override
@@ -11,7 +12,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: HomeScreen(), // Sử dụng FTUE nếu cần
+      home: BookmarkScreen(), // Sử dụng FTUE nếu cần
     );
   }
 }

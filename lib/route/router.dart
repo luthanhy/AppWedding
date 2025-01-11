@@ -19,6 +19,10 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return MaterialPageRoute(
         builder: (context) => const OnSaleScreen(),
       );
+    case bookmarkScreenRoute:
+      return MaterialPageRoute(
+        builder: (context) => const BookmarkScreen(),
+      );
     // case kidsScreenRoute:
     //   return MaterialPageRoute(
     //     builder: (context) => const KidsScreen(),

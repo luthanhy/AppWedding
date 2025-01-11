@@ -6,7 +6,7 @@ export '../screen/SingnUp/index.dart';
 export '../screen/WeddingPage/index.dart';
 export '../screen/HomePage/productDetail/index.dart';
 export '../components/utils/onsale.dart';
-
+export '../screen/HomePage/bookmark/index.dart';
 // export '../screen/homepage/index.dart';
 
 export '/route/route_constants.dart';
