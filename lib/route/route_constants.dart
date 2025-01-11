@@ -4,3 +4,7 @@ const String kidsScreenRoute = "kids";
 const String onSaleScreenRoute = "on_sale";
 const String bookmarkScreenRoute = "bookmark";
 const String userInfoScreenRoute = "user_info";
+const String signUpScreenRoute = "SignUp";
+const String loginScreenRoute = "Login";
+const String introductionAnimationScreenroute = 'ftue';
+const String entryPointScreenRoute = 'entry_point';

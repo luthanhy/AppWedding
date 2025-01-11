@@ -4,6 +4,8 @@ import './screen/Login/index.dart'; // Kiểm tra đường dẫn import
 import './screen/HomePage/index.dart'; // Kiểm tra đường dẫn import
 import './screen/HomePage/bookmark/index.dart';
 import './screen/homepage/profile/views/profile_screen.dart';
+import './route/route_constants.dart';
+import './route/router.dart' as router;
 
 class MyApp extends StatelessWidget {
   @override
@@ -13,7 +15,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: ProfileScreen(), // Sử dụng FTUE nếu cần
+      onGenerateRoute: router.generateRoute,
+      initialRoute: entryPointScreenRoute, // Sử dụng FTUE nếu cần
     );
   }
 }

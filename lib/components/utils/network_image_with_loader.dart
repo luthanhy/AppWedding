@@ -1,8 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
-import '../../constants.dart';
-import '../skleTon/skleTon.dart';
+import 'package:appwedding/constants.dart';
+import 'package:appwedding/components/skleTon/skleTon.dart';
 
 class NetworkImageWithLoader extends StatelessWidget {
   final BoxFit fit;

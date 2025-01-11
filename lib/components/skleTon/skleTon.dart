@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../constants.dart';
+import 'package:appwedding/constants.dart';
 
 class Skeleton extends StatelessWidget {
   const Skeleton(

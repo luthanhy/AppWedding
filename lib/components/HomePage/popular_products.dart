@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import '../utils/product_card.dart';
-import '../../models/product/product_model.dart';
-import '../../route/screen_export.dart';
+import 'package:appwedding/components/utils/product_card.dart';
+import 'package:appwedding/models/product/product_model.dart';
+import 'package:appwedding/route/screen_export.dart';
 
 import '../../../../constants.dart';
 

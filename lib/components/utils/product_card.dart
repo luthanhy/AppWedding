@@ -25,9 +25,17 @@ class ProductCard extends StatelessWidget {
     return OutlinedButton(
       onPressed: press,
       style: OutlinedButton.styleFrom(
-          minimumSize: const Size(140, 220),
-          maximumSize: const Size(140, 220),
-          padding: const EdgeInsets.all(8)),
+        minimumSize: const Size(140, 140), // Kích thước tối thiểu (hình vuông)
+        maximumSize: const Size(140, 140), // Kích thước tối đa (hình vuông)
+        padding: const EdgeInsets.all(8), // Khoảng cách nội dung
+        side: const BorderSide(
+          color: Colors.grey, // Màu viền
+          width: 1, // Độ dày viền
+        ),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(8)), // Bo góc nhẹ 8px
+        ),
+      ),
       child: Column(
         children: [
           AspectRatio(

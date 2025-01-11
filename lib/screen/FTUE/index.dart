@@ -6,6 +6,7 @@ import '../../components/FTUE/moodDaliView.dart';
 import '../../components/FTUE/splashWiew.dart';
 import '../../components/FTUE/relaxview.dart';
 import 'package:flutter/material.dart';
+import 'package:appwedding/route/route_constants.dart';
 
 class IntroductionAnimationScreen extends StatefulWidget {
   const IntroductionAnimationScreen({Key? key}) : super(key: key);
@@ -112,6 +113,6 @@ class _IntroductionAnimationScreenState
   }
 
   void _signUpClick() {
-    Navigator.pop(context);
+    Navigator.pushNamed(context, signUpScreenRoute);
   }
 }

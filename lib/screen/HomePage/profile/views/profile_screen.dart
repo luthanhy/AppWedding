@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:appwedding/components/utils/divider_list_tile.dart';
-import 'package:appwedding/components/utils/network_image_with_loader.dart';
 import 'package:appwedding/constants.dart';
 import 'package:appwedding/route/screen_export.dart';
 

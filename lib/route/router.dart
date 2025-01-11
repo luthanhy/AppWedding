@@ -4,6 +4,23 @@ import './screen_export.dart';
 
 Route<dynamic> generateRoute(RouteSettings settings) {
   switch (settings.name) {
+    case introductionAnimationScreenroute:
+      return MaterialPageRoute(
+        builder: (context) => const IntroductionAnimationScreen(),
+      );
+    case signUpScreenRoute:
+      return MaterialPageRoute(
+        builder: (context) => const SignUpScreen(),
+      );
+    case loginScreenRoute:
+      return MaterialPageRoute(
+        builder: (context) => const LoginScreen(),
+      );
+    case entryPointScreenRoute:
+      return MaterialPageRoute(
+        builder: (context) => const EntryPoint(),
+      );
+
     case homeScreenRoute:
       return MaterialPageRoute(
         builder: (context) => const HomeScreen(),
@@ -31,6 +48,7 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return MaterialPageRoute(
         builder: (context) => const UserInfoScreen(),
       );
+
     default:
       return MaterialPageRoute(
         // Make a screen for undefine

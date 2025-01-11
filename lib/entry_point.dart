@@ -18,7 +18,7 @@ class _EntryPointState extends State<EntryPoint> {
     BookmarkScreen(),
     // EmptyCartScreen(), // if Cart is empty
     // CartScreen()/,
-    // ProfileScreen(),
+    ProfileScreen(),
   ];
   int _currentIndex = 0;
 
@@ -120,28 +120,29 @@ class _EntryPointState extends State<EntryPoint> {
               label: "Shop",
             ),
             BottomNavigationBarItem(
-              icon: svgIcon("assets/icons/Category.svg"),
-              activeIcon:
-                  svgIcon("assets/icons/Category.svg", color: primaryColor),
-              label: "Discover",
-            ),
-            BottomNavigationBarItem(
               icon: svgIcon("assets/icons/Bookmark.svg"),
               activeIcon:
                   svgIcon("assets/icons/Bookmark.svg", color: primaryColor),
               label: "Bookmark",
             ),
-            BottomNavigationBarItem(
-              icon: svgIcon("assets/icons/Bag.svg"),
-              activeIcon: svgIcon("assets/icons/Bag.svg", color: primaryColor),
-              label: "Cart",
-            ),
+            // BottomNavigationBarItem(
+            //   icon: svgIcon("assets/icons/Category.svg"),
+            //   activeIcon:
+            //       svgIcon("assets/icons/Category.svg", color: primaryColor),
+            //   label: "Discover",
+            // ),
             BottomNavigationBarItem(
               icon: svgIcon("assets/icons/Profile.svg"),
               activeIcon:
                   svgIcon("assets/icons/Profile.svg", color: primaryColor),
               label: "Profile",
             ),
+
+            // BottomNavigationBarItem(
+            //   icon: svgIcon("assets/icons/Bag.svg"),
+            //   activeIcon: svgIcon("assets/icons/Bag.svg", color: primaryColor),
+            //   label: "Cart",
+            // ),
           ],
         ),
       ),

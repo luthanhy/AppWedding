@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import '../../components/utils/secondary_product_card.dart';
-import '../../models/product/product_cart.dart';
+import '../../models/product/product_model.dart';
 
-import '../../../../constants.dart';
-import '../../../../route/route_constants.dart';
+import 'package:appwedding/constants.dart';
+import 'package:appwedding/route/route_constants.dart';
 
 class MostPopular extends StatelessWidget {
   const MostPopular({
@@ -15,44 +15,44 @@ class MostPopular extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const SizedBox(height: defaultPadding / 2),
-        Padding(
-          padding: const EdgeInsets.all(defaultPadding),
-          child: Text(
-            "Most popular",
-            style: Theme.of(context).textTheme.titleSmall,
-          ),
-        ),
-        // While loading use 👇
-        // SeconderyProductsSkelton(),
-        SizedBox(
-          height: 114,
-          child: ListView.builder(
-            scrollDirection: Axis.horizontal,
-            // Find demoPopularProducts on models/ProductModel.dart
-            itemCount: demoPopularProducts.length,
-            itemBuilder: (context, index) => Padding(
-              padding: EdgeInsets.only(
-                left: defaultPadding,
-                right: index == demoPopularProducts.length - 1
-                    ? defaultPadding
-                    : 0,
-              ),
-              child: SecondaryProductCard(
-                image: demoPopularProducts[index].image,
-                brandName: demoPopularProducts[index].brandName,
-                title: demoPopularProducts[index].title,
-                price: demoPopularProducts[index].price,
-                priceAfetDiscount: demoPopularProducts[index].priceAfetDiscount,
-                dicountpercent: demoPopularProducts[index].dicountpercent,
-                press: () {
-                  Navigator.pushNamed(context, productDetailsScreenRoute,
-                      arguments: index.isEven);
-                },
-              ),
-            ),
-          ),
-        )
+        // const SizedBox(height: defaultPadding / 2),
+        // Padding(
+        //   padding: const EdgeInsets.all(defaultPadding),
+        //   child: Text(
+        //     "Most popular",
+        //     style: Theme.of(context).textTheme.titleSmall,
+        //   ),
+        // ),
+        // // While loading use 👇
+        // // SeconderyProductsSkelton(),
+        // SizedBox(
+        //   height: 114,
+        //   child: ListView.builder(
+        //     scrollDirection: Axis.horizontal,
+        //     // Find demoPopularProducts on models/ProductModel.dart
+        //     itemCount: demoPopularProducts.length,
+        //     itemBuilder: (context, index) => Padding(
+        //       padding: EdgeInsets.only(
+        //         left: defaultPadding,
+        //         right: index == demoPopularProducts.length - 1
+        //             ? defaultPadding
+        //             : 0,
+        //       ),
+        //       child: SecondaryProductCard(
+        //         image: demoPopularProducts[index].image,
+        //         brandName: demoPopularProducts[index].brandName,
+        //         title: demoPopularProducts[index].title,
+        //         price: demoPopularProducts[index].price,
+        //         priceAfetDiscount: demoPopularProducts[index].priceAfetDiscount,
+        //         dicountpercent: demoPopularProducts[index].dicountpercent,
+        //         press: () {
+        //           Navigator.pushNamed(context, productDetailsScreenRoute,
+        //               arguments: index.isEven);
+        //         },
+        //       ),
+        //     ),
+        //   ),
+        // )
       ],
     );
   }
