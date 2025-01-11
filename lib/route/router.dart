@@ -19,10 +19,10 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return MaterialPageRoute(
         builder: (context) => const OnSaleScreen(),
       );
-    case kidsScreenRoute:
-      return MaterialPageRoute(
-        builder: (context) => const KidsScreen(),
-      );
+    // case kidsScreenRoute:
+    //   return MaterialPageRoute(
+    //     builder: (context) => const KidsScreen(),
+    //   );
     default:
       return MaterialPageRoute(
         // Make a screen for undefine

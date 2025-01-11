@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(), // Sử dụng FTUE nếu cần
+      home: HomeScreen(), // Sử dụng FTUE nếu cần
     );
   }
 }

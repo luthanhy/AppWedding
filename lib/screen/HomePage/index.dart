@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:shop/components/Banner/S/banner_s_style_1.dart';
-import 'package:shop/components/Banner/S/banner_s_style_5.dart';
+import '../../components/Banner/banner_s_style_1.dart';
+import '../../components/Banner/banner_s_style_5.dart';
+
 import '../../constants.dart';
-// import 'package:shop/route/screen_export.dart';
+import '../../route/screen_export.dart';
 
 import '../../components/HomePage/bestSellers.dart';
 import '../../components/HomePage/flash_sale.dart';
-import 'components/most_popular.dart';
-import 'components/offer_carousel_and_categories.dart';
-import 'components/popular_products.dart';
+import '../../components/HomePage/most_popular.dart';
+import '../../components/HomePage/offer_carousel_and_categories.dart';
+import '../../components/HomePage/popular_products.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
