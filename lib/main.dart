@@ -3,6 +3,7 @@ import './screen/FTUE/index.dart'; // Kiểm tra đường dẫn import
 import './screen/Login/index.dart'; // Kiểm tra đường dẫn import
 import './screen/HomePage/index.dart'; // Kiểm tra đường dẫn import
 import './screen/HomePage/bookmark/index.dart';
+import './screen/homepage/profile/views/profile_screen.dart';
 
 class MyApp extends StatelessWidget {
   @override
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: BookmarkScreen(), // Sử dụng FTUE nếu cần
+      home: ProfileScreen(), // Sử dụng FTUE nếu cần
     );
   }
 }

@@ -27,6 +27,10 @@ Route<dynamic> generateRoute(RouteSettings settings) {
     //   return MaterialPageRoute(
     //     builder: (context) => const KidsScreen(),
     //   );
+    case userInfoScreenRoute:
+      return MaterialPageRoute(
+        builder: (context) => const UserInfoScreen(),
+      );
     default:
       return MaterialPageRoute(
         // Make a screen for undefine
