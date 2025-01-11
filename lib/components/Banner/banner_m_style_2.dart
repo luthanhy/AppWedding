@@ -3,7 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import './banner_discount_tag.dart';
 import 'banner1_m.dart';
 
-import '../../../constants.dart';
+import 'package:appwedding/constants.dart';
 
 class BannerMStyle2 extends StatelessWidget {
   const BannerMStyle2({

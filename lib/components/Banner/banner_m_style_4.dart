@@ -4,7 +4,7 @@ import 'package:flutter_svg/svg.dart';
 
 import 'banner1_m.dart';
 
-import '../../../constants.dart';
+import 'package:appwedding/constants.dart';
 
 class BannerMStyle4 extends StatelessWidget {
   const BannerMStyle4({

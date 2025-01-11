@@ -2,7 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
-import '../../constants.dart';
+import 'package:appwedding/constants.dart';
 
 class BlurContainer extends StatelessWidget {
   const BlurContainer({

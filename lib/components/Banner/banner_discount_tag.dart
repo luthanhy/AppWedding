@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
-import '../../constants.dart';
+import 'package:appwedding/constants.dart';
 
 class BannerDiscountTag extends StatelessWidget {
   const BannerDiscountTag({
@@ -24,7 +23,7 @@ class BannerDiscountTag extends StatelessWidget {
         alignment: Alignment.center,
         children: [
           SvgPicture.asset(
-            "assets/icons/Discount_tag.svg",
+            "./assets/icons/Discount_tag.svg",
             fit: BoxFit.fill,
             colorFilter:
                 const ColorFilter.mode(Colors.white70, BlendMode.srcIn),

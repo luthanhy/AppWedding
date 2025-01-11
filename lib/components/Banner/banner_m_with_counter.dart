@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import '../../../constants.dart';
+import 'package:appwedding/constants.dart';
 import './blur_contain.dart';
 import './banner1_m.dart';
 
