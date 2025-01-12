@@ -15,16 +15,16 @@ class ProfileScreen extends StatelessWidget {
     return Scaffold(
       body: ListView(
         children: [
-          ProfileCard(
-            name: "Sepide",
-            email: "theflutterway@gmail.com",
-            imageSrc: "https://i.imgur.com/IXnwbLk.png",
-            // proLableText: "Sliver",
-            // isPro: true, if the user is pro
-            press: () {
-              Navigator.pushNamed(context, userInfoScreenRoute);
-            },
-          ),
+          // ProfileCard(
+          //   name: "Sepide",
+          //   email: "theflutterway@gmail.com",
+          //   imageSrc: "https://i.imgur.com/IXnwbLk.png",
+          //   // proLableText: "Sliver",
+          //   // isPro: true, if the user is pro
+          //   press: () {
+          //     Navigator.pushNamed(context, userInfoScreenRoute);
+          //   },
+          // ),
           // Padding(
           //   padding: const EdgeInsets.symmetric(
           //       horizontal: defaultPadding, vertical: defaultPadding * 1.5),
@@ -38,13 +38,13 @@ class ProfileScreen extends StatelessWidget {
           //   ),
           // ),
 
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
-            child: Text(
-              "Account",
-              style: Theme.of(context).textTheme.titleSmall,
-            ),
-          ),
+          // Padding(
+          //   padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
+          //   child: Text(
+          //     "Account",
+          //     style: Theme.of(context).textTheme.titleSmall,
+          //   ),
+          // ),
           const SizedBox(height: defaultPadding / 2),
           ProfileMenuListTile(
             text: "Orders",
@@ -58,32 +58,7 @@ class ProfileScreen extends StatelessWidget {
             svgSrc: "assets/icons/Return.svg",
             press: () {},
           ),
-          ProfileMenuListTile(
-            text: "Wishlist",
-            svgSrc: "assets/icons/Wishlist.svg",
-            press: () {},
-          ),
-          ProfileMenuListTile(
-            text: "Addresses",
-            svgSrc: "assets/icons/Address.svg",
-            press: () {
-              // Navigator.pushNamed(context, addressesScreenRoute);
-            },
-          ),
-          ProfileMenuListTile(
-            text: "Payment",
-            svgSrc: "assets/icons/card.svg",
-            press: () {
-              // Navigator.pushNamed(context, emptyPaymentScreenRoute);
-            },
-          ),
-          ProfileMenuListTile(
-            text: "Wallet",
-            svgSrc: "assets/icons/Wallet.svg",
-            press: () {
-              // Navigator.pushNamed(context, walletScreenRoute);
-            },
-          ),
+
           const SizedBox(height: defaultPadding),
           Padding(
             padding: const EdgeInsets.symmetric(
@@ -101,13 +76,7 @@ class ProfileScreen extends StatelessWidget {
               // Navigator.pushNamed(context, enableNotificationScreenRoute);
             },
           ),
-          ProfileMenuListTile(
-            text: "Preferences",
-            svgSrc: "assets/icons/Preferences.svg",
-            press: () {
-              // Navigator.pushNamed(context, preferencesScreenRoute);
-            },
-          ),
+
           const SizedBox(height: defaultPadding),
           Padding(
             padding: const EdgeInsets.symmetric(
@@ -124,11 +93,11 @@ class ProfileScreen extends StatelessWidget {
               // Navigator.pushNamed(context, selectLanguageScreenRoute);
             },
           ),
-          ProfileMenuListTile(
-            text: "Location",
-            svgSrc: "assets/icons/Location.svg",
-            press: () {},
-          ),
+          // ProfileMenuListTile(
+          //   text: "Location",
+          //   svgSrc: "assets/icons/Location.svg",
+          //   press: () {},
+          // ),
           const SizedBox(height: defaultPadding),
           Padding(
             padding: const EdgeInsets.symmetric(

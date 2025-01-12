@@ -113,6 +113,6 @@ class _IntroductionAnimationScreenState
   }
 
   void _signUpClick() {
-    Navigator.pushNamed(context, signUpScreenRoute);
+    Navigator.pushNamed(context, entryPointScreenRoute);
   }
 }

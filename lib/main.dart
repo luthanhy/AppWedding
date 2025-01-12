@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       onGenerateRoute: router.generateRoute,
-      initialRoute: entryPointScreenRoute, // Sử dụng FTUE nếu cần
+      initialRoute: introductionAnimationScreenroute, // Sử dụng FTUE nếu cần
     );
   }
 }
