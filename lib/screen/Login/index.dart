@@ -1,7 +1,6 @@
+import 'package:appwedding/components/Login/loginTopImange.dart';
+import 'package:appwedding/components/Login/loginform.dart';
 import 'package:flutter/material.dart';
-
-import '../../components/Login/loginform.dart';
-import '../../components/Login/loginTopImange.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({Key? key}) : super(key: key);

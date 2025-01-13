@@ -61,11 +61,11 @@ class ProductDetailsScreen extends StatelessWidget {
               images: [productDemoImg1, productDemoImg2, productDemoImg3],
             ),
             ProductInfo(
-              brand: "LIPSY LONDON",
-              title: "Sleeveless Ruffle",
+              brand: "Mẫu 1",
+              title: "Thiệp Cưới Cổ Điển",
               isAvailable: isProductAvailable,
               description:
-                  "A cool gray cap in soft corduroy. Watch me.' By buying cotton products from Lindex, you’re supporting more responsibly...",
+                  "Thiết kế truyền thống với họa tiết hoa văn, màu sắc nhẹ nhàng, phù hợp với những cặp đôi yêu thích sự thanh thoát, sang trọng.",
               rating: 4.4,
               numOfReviews: 126,
             ),
@@ -132,7 +132,7 @@ class ProductDetailsScreen extends StatelessWidget {
               padding: const EdgeInsets.all(defaultPadding),
               sliver: SliverToBoxAdapter(
                 child: Text(
-                  "You may also like",
+                  "Có Thể Bạn Thích Những Mẫu Dưới Đây",
                   style: Theme.of(context).textTheme.titleSmall!,
                 ),
               ),
@@ -142,15 +142,16 @@ class ProductDetailsScreen extends StatelessWidget {
                 height: 220,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
-                  itemCount: 5,
+                  itemCount: 1,
                   itemBuilder: (context, index) => Padding(
                     padding: EdgeInsets.only(
                         left: defaultPadding,
                         right: index == 4 ? defaultPadding : 0),
                     child: ProductCard(
                       image: productDemoImg2,
-                      title: "Sleeveless Tiered Dobby Swing Dress",
-                      brandName: "LIPSY LONDON",
+                      title:
+                          "Thiệp có phong cách tối giản, đường nét rõ ràng, sắc nét, phù hợp với các cặp đôi yêu thích sự trẻ trung, năng động.",
+                      brandName: "Thiệp Cưới Hiện Đại",
                       price: 24.65,
                       priceAfetDiscount: index.isEven ? 20.99 : null,
                       dicountpercent: index.isEven ? 25 : null,

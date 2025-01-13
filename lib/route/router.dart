@@ -1,3 +1,9 @@
+import 'package:appwedding/screen/FTUE/index.dart';
+import 'package:appwedding/screen/HomePage/bookmark/index.dart';
+import 'package:appwedding/screen/HomePage/index.dart';
+import 'package:appwedding/screen/HomePage/productDetail/index.dart';
+import 'package:appwedding/screen/Login/index.dart';
+import 'package:appwedding/screen/SingnUp/index.dart';
 import 'package:flutter/material.dart';
 
 import './screen_export.dart';

@@ -1,7 +1,6 @@
+import 'package:appwedding/components/SignUp/signupForm.dart';
+import 'package:appwedding/components/SignUp/signupTopImage.dart';
 import 'package:flutter/material.dart';
-
-import '../../components/SignUp/signupForm.dart';
-import '../../components/SignUp/signupTopImage.dart';
 
 class SignUpScreen extends StatelessWidget {
   const SignUpScreen({Key? key}) : super(key: key);

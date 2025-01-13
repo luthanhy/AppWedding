@@ -1,8 +1,8 @@
+import 'package:appwedding/screen/SingnUp/index.dart';
 import 'package:flutter/material.dart';
 
 import '../utils/alreadyAccount.dart';
 import '../../../constants.dart';
-import '../../screen/SingnUp/index.dart';
 
 class LoginForm extends StatelessWidget {
   const LoginForm({

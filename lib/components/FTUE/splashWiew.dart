@@ -38,14 +38,14 @@ class _SplashViewState extends State<SplashView> {
             Padding(
               padding: EdgeInsets.only(top: 8.0, bottom: 8.0),
               child: Text(
-                "Clearhead",
+                "Sự Lựa Chọn Đáng Tin Cậy",
                 style: TextStyle(fontSize: 25.0, fontWeight: FontWeight.bold),
               ),
             ),
             Padding(
               padding: EdgeInsets.only(left: 64, right: 64),
               child: Text(
-                "Lorem ipsum dolor sit amet,consectetur adipiscing elit,sed do eiusmod tempor incididunt ut labore",
+                "Chọn Lựa Thiệp Cưới Hoàn Hảo Cho Ngày Lễ Cưới Của Bạn",
                 textAlign: TextAlign.center,
               ),
             ),
@@ -72,7 +72,7 @@ class _SplashViewState extends State<SplashView> {
                     color: Color(0xff132137),
                   ),
                   child: Text(
-                    "Let's begin",
+                    "Bắt Đầu",
                     style: TextStyle(
                       fontSize: 18,
                       color: Colors.white,

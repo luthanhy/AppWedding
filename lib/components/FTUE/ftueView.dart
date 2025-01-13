@@ -97,7 +97,7 @@ class CareView extends StatelessWidget {
                 child: SlideTransition(
                   position: _relaxSecondHalfAnimation,
                   child: Text(
-                    "Care",
+                    "Tùy Chỉnh Thiệp Cưới",
                     style:
                         TextStyle(fontSize: 26.0, fontWeight: FontWeight.bold),
                   ),
@@ -107,7 +107,7 @@ class CareView extends StatelessWidget {
                 padding:
                     EdgeInsets.only(left: 64, right: 64, bottom: 16, top: 16),
                 child: Text(
-                  "Lorem ipsum dolor sit amet,consectetur adipiscing elit,sed do eiusmod tempor incididunt ut labore",
+                  "Tạo ra những chiếc thiệp cưới độc đáo và mang dấu ấn riêng biệt của bạn. Chọn màu sắc, họa tiết và thông điệp để thiệp cưới trở nên đặc biệt hơn bao giờ hết.",
                   textAlign: TextAlign.center,
                 ),
               ),

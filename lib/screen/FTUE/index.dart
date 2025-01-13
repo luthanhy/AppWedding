@@ -1,10 +1,11 @@
-import '../../components/FTUE/buttonTopBackSkip.dart';
-import '../../components/FTUE/centerButtonNext.dart';
-import '../../components/FTUE/ftueView.dart';
-import '../../components/FTUE/ftueWelcome.dart';
-import '../../components/FTUE/moodDaliView.dart';
-import '../../components/FTUE/splashWiew.dart';
-import '../../components/FTUE/relaxview.dart';
+
+import 'package:appwedding/components/FTUE/buttonTopBackSkip.dart';
+import 'package:appwedding/components/FTUE/centerButtonNext.dart';
+import 'package:appwedding/components/FTUE/ftueView.dart';
+import 'package:appwedding/components/FTUE/ftueWelcome.dart';
+import 'package:appwedding/components/FTUE/moodDaliView.dart';
+import 'package:appwedding/components/FTUE/relaxview.dart';
+import 'package:appwedding/components/FTUE/splashWiew.dart';
 import 'package:flutter/material.dart';
 import 'package:appwedding/route/route_constants.dart';
 

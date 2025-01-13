@@ -1,4 +1,7 @@
 import 'package:animations/animations.dart';
+import 'package:appwedding/screen/HomePage/bookmark/index.dart';
+import 'package:appwedding/screen/HomePage/index.dart';
+import 'package:appwedding/screen/HomePage/profile/views/profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import './constants.dart';

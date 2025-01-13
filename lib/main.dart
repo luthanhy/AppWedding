@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import './screen/FTUE/index.dart'; // Kiểm tra đường dẫn import
-import './screen/Login/index.dart'; // Kiểm tra đường dẫn import
-import './screen/HomePage/index.dart'; // Kiểm tra đường dẫn import
-import './screen/HomePage/bookmark/index.dart';
-import './screen/homepage/profile/views/profile_screen.dart';
+import 'screen/FTUE/index.dart'; // Kiểm tra đường dẫn import
+import 'screen/Login/index.dart'; // Kiểm tra đường dẫn import
+import 'screen/HomePage/index.dart'; // Kiểm tra đường dẫn import
+import 'screen/HomePage/bookmark/index.dart';
 import './route/route_constants.dart';
 import './route/router.dart' as router;
 
