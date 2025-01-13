@@ -20,7 +20,12 @@ dependencies:
   flutter_widget_from_html_core: ^0.15.1
   animations: ^2.0.11
   url_launcher: ^6.3.0
-
+  webview_flutter: ^4.0.0  # Ensure this is the latest stable version
+  get: ^4.6.5 # Phiên bản mới nhất của GetX
+  dio: ^5.0.0 # Dùng để gửi request HTTP
+  shared_preferences: ^2.0.15
+  flutter_custom_tabs: ^2.1.0
+  provider: ^6.0.5
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -37,7 +42,7 @@ flutter:
     - assets/flags/
     - assets/logo/
     - assets/screens/
-
+    - assets/introduction_animation/
   fonts:
     - family: Plus Jakarta
       fonts:

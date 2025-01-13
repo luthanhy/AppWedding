@@ -34,13 +34,22 @@ Route<dynamic> generateRoute(RouteSettings settings) {
     case productDetailsScreenRoute:
       return MaterialPageRoute(
         builder: (context) {
-          bool isProductAvailable = settings.arguments as bool? ?? true;
-          return ProductDetailsScreen(
+          final args = settings.arguments as Map<String, dynamic>;
+
+          bool isProductAvailable = args['isProductAvailable'] ?? true;
+          int index = args['index'] ?? 0;
+
+          return  ProductDetailsScreen(
             isProductAvailable: isProductAvailable,
+              productIndex:index
           );
         },
       );
-
+    case WebViewScreenRoute:
+      final String url = settings.arguments as String;
+      return MaterialPageRoute(
+        builder: (context) => WebViewScreen(url: url), // Pass url as a normal variable, not const
+      );
     case onSaleScreenRoute:
       return MaterialPageRoute(
         builder: (context) => const OnSaleScreen(),

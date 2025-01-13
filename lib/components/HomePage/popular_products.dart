@@ -2,16 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:appwedding/components/utils/product_card.dart';
 import 'package:appwedding/models/product/product_model.dart';
 import 'package:appwedding/route/screen_export.dart';
+import 'package:get/get.dart';
+import 'package:appwedding/controllers/product_controller.dart';
 
 import '../../../../constants.dart';
 
 class PopularProducts extends StatelessWidget {
-  const PopularProducts({
-    super.key,
-  });
+  const PopularProducts({super.key});
 
   @override
   Widget build(BuildContext context) {
+    // Initialize the ProductController
+    ProductController productController = Get.put(ProductController());
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -19,40 +22,49 @@ class PopularProducts extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.all(defaultPadding),
           child: Text(
-            "Trải Nhiệm Các Mẫu Thiệp Có Sẵn Dưới Đây",
+            "Trải Nghiệm Các Mẫu Thiệp Có Sẵn Dưới Đây",
             style: Theme.of(context).textTheme.titleSmall,
           ),
         ),
-        // While loading use 👇
-        // const ProductsSkelton(),
-        SizedBox(
-          height: 220,
-          child: ListView.builder(
-            scrollDirection: Axis.horizontal,
-            // Find demoPopularProducts on models/ProductModel.dart
-            itemCount: demoPopularProducts.length,
-            itemBuilder: (context, index) => Padding(
-              padding: EdgeInsets.only(
-                left: defaultPadding,
-                right: index == demoPopularProducts.length - 1
-                    ? defaultPadding
-                    : 0,
-              ),
-              child: ProductCard(
-                image: demoPopularProducts[index].image,
-                brandName: demoPopularProducts[index].brandName,
-                title: demoPopularProducts[index].title,
-                price: demoPopularProducts[index].price,
-                priceAfetDiscount: demoPopularProducts[index].priceAfetDiscount,
-                dicountpercent: demoPopularProducts[index].dicountpercent,
-                press: () {
-                  Navigator.pushNamed(context, productDetailsScreenRoute,
-                      arguments: index.isEven);
-                },
+        Obx(() {
+          // Check if products are empty
+          if (productController.products.isEmpty) {
+            return const Center(child: CircularProgressIndicator());
+          }
+          return SizedBox(
+            height: 220,
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemCount: productController.products.length,
+              itemBuilder: (context, index) => Padding(
+                padding: EdgeInsets.only(
+                  left: defaultPadding,
+                  right: index == productController.products.length - 1
+                      ? defaultPadding
+                      : 0,
+                ),
+                child: ProductCard(
+                  image: productController.products[index].image,
+                  brandName: productController.products[index].brandName,
+                  title: productController.products[index].title,
+                  price: productController.products[index].price,
+                  priceAfetDiscount: productController.products[index].priceAfetDiscount,
+                  dicountpercent: productController.products[index].dicountpercent,
+                  press: () {
+                    Navigator.pushNamed(
+                      context,
+                      productDetailsScreenRoute,
+                      arguments: {
+                        'isProductAvailable': index.isEven,
+                        'index': index,
+                      },
+                    );
+                  },
+                ),
               ),
             ),
-          ),
-        )
+          );
+        }),
       ],
     );
   }

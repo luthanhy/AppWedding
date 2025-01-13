@@ -8,3 +8,4 @@ const String signUpScreenRoute = "SignUp";
 const String loginScreenRoute = "Login";
 const String introductionAnimationScreenroute = 'ftue';
 const String entryPointScreenRoute = 'entry_point';
+const String WebViewScreenRoute = 'webview' ;

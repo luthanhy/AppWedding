@@ -1,117 +1,147 @@
-import 'package:appwedding/models/product/product_cart.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:appwedding/components/utils/buy_full_ui_kit.dart';
 import 'package:appwedding/components/utils/card_button.dart';
-import 'package:appwedding/components/utils/custom_modal_card_button_sheet.dart';
 import 'package:appwedding/components/utils/product_card.dart';
 import 'package:appwedding/constants.dart';
-// import 'package:shop/screens/product/views/product_returns_screen.dart';
-
 import 'package:appwedding/route/screen_export.dart';
-
-// import 'components/notify_me_card.dart';
 import 'package:appwedding/components/utils/product_image.dart';
 import 'package:appwedding/components/utils/product_info.dart';
-// import 'components/product_list_tile.dart';
-// import '../../../components/review_card.dart';
-// import 'product_buy_now_screen.dart';
+import 'package:appwedding/models/product/product.dart';
+import 'package:appwedding/controllers/product_controller.dart';
+import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class ProductDetailsScreen extends StatelessWidget {
   const ProductDetailsScreen({
     super.key,
     this.isProductAvailable = true,
+    required this.productIndex, // Nhận index sản phẩm làm tham số
   });
 
   final bool isProductAvailable;
+  final int productIndex; // Chỉ số sản phẩm được truyền vào
+
+  Future<bool> _isUserLoggedIn() async {
+    final prefs = await SharedPreferences.getInstance();
+    return prefs.getBool('isLogin') ?? false;
+  }
+
+
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      bottomNavigationBar: CartButton(
-        price: 140,
-        press: () {
-          // Tùy chọn khác khi nhấn vào CartButton
-        },
-      ),
-      body: SafeArea(
-        child: CustomScrollView(
-          slivers: [
-            SliverAppBar(
-              backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-              floating: true,
-              actions: [
-                IconButton(
-                  onPressed: () {},
-                  icon: SvgPicture.asset("assets/icons/Bookmark.svg",
-                      color: Theme.of(context).textTheme.bodyLarge!.color),
-                ),
-              ],
-            ),
-            const ProductImages(
-              images: [productDemoImg1, productDemoImg2, productDemoImg3],
-            ),
-            ProductInfo(
-              brand: "Mẫu 1",
-              title: "Thiệp Cưới Cổ Điển",
-              isAvailable: isProductAvailable,
-              description:
-                  "Thiết kế truyền thống với họa tiết hoa văn, màu sắc nhẹ nhàng, phù hợp với những cặp đôi yêu thích sự thanh thoát, sang trọng.",
-              rating: 4.4,
-              numOfReviews: 126,
-            ),
-            SliverPadding(
-              padding: const EdgeInsets.all(defaultPadding),
-              sliver: SliverToBoxAdapter(
-                child: Text(
-                  "Có Thể Bạn Thích Những Mẫu Dưới Đây",
-                  style: Theme.of(context).textTheme.titleSmall!,
-                ),
+    ProductController productController = Get.put(ProductController());
+
+    return Obx(() {
+      // Kiểm tra trạng thái khi danh sách sản phẩm còn trống
+      if (productController.products.isEmpty) {
+        return const Center(child: CircularProgressIndicator());  // Hiển thị loading nếu sản phẩm trống
+      }
+
+      final product = productController.products[productIndex]; // Lấy sản phẩm theo chỉ số từ productController
+
+      return Scaffold(
+        bottomNavigationBar: CartButton(
+          price: product.price,
+          press: () async {
+            final isLoggedIn = await _isUserLoggedIn();
+            if (isLoggedIn) {
+              Navigator.pushNamed(
+                context,
+                WebViewScreenRoute,
+                arguments: "https://8160-42-115-94-145.ngrok-free.app/order/create_payment_url",
+              );
+            } else {
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(content: Text('Vui Lòng Đăng Nhập Trước Khi Thanh Toán')),
+              );
+              Navigator.pushNamed(
+                context,
+                  loginScreenRoute
+              );
+            }
+          },
+        ),
+        body: SafeArea(
+          child: CustomScrollView(
+            slivers: [
+              SliverAppBar(
+                backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+                floating: true,
+                actions: [
+                  IconButton(
+                    onPressed: () {},
+                    icon: SvgPicture.asset("assets/icons/Bookmark.svg",
+                        color: Theme.of(context).textTheme.bodyLarge!.color),
+                  ),
+                ],
               ),
-            ),
-            SliverToBoxAdapter(
-              child: SizedBox(
-                height: 220,
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount:
-                      demoPopularProducts.length, // Đếm số lượng sản phẩm
-                  itemBuilder: (context, index) => Padding(
-                    padding: EdgeInsets.only(
-                        left: defaultPadding,
-                        right: index == demoPopularProducts.length - 1
-                            ? defaultPadding
-                            : 0),
-                    child: ProductCard(
-                      image: demoPopularProducts[index].image,
-                      title: demoPopularProducts[index].title,
-                      brandName: demoPopularProducts[index].brandName,
-                      price: demoPopularProducts[index].price,
-                      priceAfetDiscount:
-                          demoPopularProducts[index].priceAfetDiscount,
-                      dicountpercent: demoPopularProducts[index].dicountpercent,
-                      press: () {
-                        // Điều hướng tới màn hình chi tiết sản phẩm
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => ProductDetailsScreen(
-                              isProductAvailable: true,
-                            ),
-                          ),
-                        );
-                      },
-                    ),
+              ProductImages(
+                images: [product.image], // Dùng hình ảnh từ sản phẩm
+              ),
+              ProductInfo(
+                brand: product.brandName,
+                title: product.title,
+                isAvailable: isProductAvailable,
+                description: "",//product.description ??, // Mô tả sản phẩm
+                rating:4.4,// product.rating ?? 4.4,  // Đánh giá sản phẩm
+                numOfReviews: 126//product.numOfReviews ?? 126, // Số đánh giá
+              ),
+              SliverPadding(
+                padding: const EdgeInsets.all(defaultPadding),
+                sliver: SliverToBoxAdapter(
+                  child: Text(
+                    "You may like these products",
+                    style: Theme.of(context).textTheme.titleSmall!,
                   ),
                 ),
               ),
-            ),
-            const SliverToBoxAdapter(
-              child: SizedBox(height: defaultPadding),
-            )
-          ],
+              SliverToBoxAdapter(
+                child: SizedBox(
+                  height: 220,
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: productController.products.length, // Dùng demoProducts để lặp qua sản phẩm
+                    itemBuilder: (context, index) {
+                      var product = productController.products[index]; // Lấy sản phẩm
+                      return Padding(
+                        padding: EdgeInsets.only(
+                            left: defaultPadding,
+                            right: index == productController.products.length - 1
+                                ? defaultPadding
+                                : 0),
+                        child: ProductCard(
+                          image: product.image,
+                          title: product.title,
+                          brandName: product.brandName,
+                          price: product.price,
+                          priceAfetDiscount: product.priceAfetDiscount,
+                          dicountpercent: product.dicountpercent,
+                          press: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => ProductDetailsScreen(
+                                  isProductAvailable: true,
+                                  productIndex: index, // Truyền chỉ số sản phẩm vào
+                                ),
+                              ),
+                            );
+                          },
+                        ),
+                      );
+                    },
+                  ),
+                ),
+              ),
+              const SliverToBoxAdapter(
+                child: SizedBox(height: defaultPadding),
+              )
+            ],
+          ),
         ),
-      ),
-    );
+      );
+    });
   }
 }
