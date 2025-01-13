@@ -20,16 +20,16 @@ class ProductModel {
 List<ProductModel> demoPopularProducts = [
   ProductModel(
     image: productDemoImg1,
-    title: "Mountain Warehouse for Women",
-    brandName: "Lipsy london",
+    title: "Thiệp Cưới Cổ Điển",
+    brandName: "Mẫu 1",
     price: 540,
     priceAfetDiscount: 420,
     dicountpercent: 20,
   ),
   ProductModel(
     image: productDemoImg4,
-    title: "Mountain Beta Warehouse",
-    brandName: "Lipsy london",
+    title: "Thiệp Cưới Hiện Đại",
+    brandName: "Mẫu 2 ",
     price: 800,
   ),
   ProductModel(

@@ -1,3 +1,4 @@
+import 'package:appwedding/models/product/product_cart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:appwedding/components/utils/buy_full_ui_kit.dart';
@@ -17,32 +18,22 @@ import 'package:appwedding/components/utils/product_info.dart';
 // import 'product_buy_now_screen.dart';
 
 class ProductDetailsScreen extends StatelessWidget {
-  const ProductDetailsScreen({super.key, this.isProductAvailable = true});
+  const ProductDetailsScreen({
+    super.key,
+    this.isProductAvailable = true,
+  });
 
   final bool isProductAvailable;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: ( //: isProductAvailable?
-              CartButton(
+      bottomNavigationBar: CartButton(
         price: 140,
         press: () {
-          // customModalBottomSheet(
-          //   context,
-          //   height: MediaQuery.of(context).size.height * 0.92,
-          //   child: const ProductBuyNowScreen(),
-          // );
+          // Tùy chọn khác khi nhấn vào CartButton
         },
-      )
-          // :
-
-          /// If profuct is not available then show [NotifyMeCard]
-          // NotifyMeCard(
-          //     isNotify: false,
-          //     onChanged: (value) {},
-          //   ),
-          ),
+      ),
       body: SafeArea(
         child: CustomScrollView(
           slivers: [
@@ -69,65 +60,6 @@ class ProductDetailsScreen extends StatelessWidget {
               rating: 4.4,
               numOfReviews: 126,
             ),
-            // ProductListTile(
-            //   svgSrc: "assets/icons/Product.svg",
-            //   title: "Product Details",
-            //   press: () {
-            //     customModalBottomSheet(
-            //       context,
-            //       height: MediaQuery.of(context).size.height * 0.92,
-            //       child: const BuyFullKit(
-            //           images: ["assets/screens/Product detail.png"]),
-            //     );
-            //   },
-            // ),
-            // ProductListTile(
-            //   svgSrc: "assets/icons/Delivery.svg",
-            //   title: "Shipping Information",
-            //   press: () {
-            //     customModalBottomSheet(
-            //       context,
-            //       height: MediaQuery.of(context).size.height * 0.92,
-            //       child: const BuyFullKit(
-            //         images: ["assets/screens/Shipping information.png"],
-            //       ),
-            //     );
-            //   },
-            // ),
-            // ProductListTile(
-            //   svgSrc: "assets/icons/Return.svg",
-            //   title: "Returns",
-            //   isShowBottomBorder: true,
-            //   press: () {
-            //     customModalBottomSheet(
-            //       context,
-            //       height: MediaQuery.of(context).size.height * 0.92,
-            //       child: const ProductReturnsScreen(),
-            //     );
-            //   },
-            // ),
-            // const SliverToBoxAdapter(
-            //   child: Padding(
-            //     padding: EdgeInsets.all(defaultPadding),
-            //     child: ReviewCard(
-            //       rating: 4.3,
-            //       numOfReviews: 128,
-            //       numOfFiveStar: 80,
-            //       numOfFourStar: 30,
-            //       numOfThreeStar: 5,
-            //       numOfTwoStar: 4,
-            //       numOfOneStar: 1,
-            //     ),
-            //   ),
-            // ),
-            // ProductListTile(
-            //   svgSrc: "assets/icons/Chat.svg",
-            //   title: "Reviews",
-            //   isShowBottomBorder: true,
-            //   press: () {
-            //     Navigator.pushNamed(context, productReviewsScreenRoute);
-            //   },
-            // ),
             SliverPadding(
               padding: const EdgeInsets.all(defaultPadding),
               sliver: SliverToBoxAdapter(
@@ -142,20 +74,33 @@ class ProductDetailsScreen extends StatelessWidget {
                 height: 220,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
-                  itemCount: 1,
+                  itemCount:
+                      demoPopularProducts.length, // Đếm số lượng sản phẩm
                   itemBuilder: (context, index) => Padding(
                     padding: EdgeInsets.only(
                         left: defaultPadding,
-                        right: index == 4 ? defaultPadding : 0),
+                        right: index == demoPopularProducts.length - 1
+                            ? defaultPadding
+                            : 0),
                     child: ProductCard(
-                      image: productDemoImg2,
-                      title:
-                          "Thiệp có phong cách tối giản, đường nét rõ ràng, sắc nét, phù hợp với các cặp đôi yêu thích sự trẻ trung, năng động.",
-                      brandName: "Thiệp Cưới Hiện Đại",
-                      price: 24.65,
-                      priceAfetDiscount: index.isEven ? 20.99 : null,
-                      dicountpercent: index.isEven ? 25 : null,
-                      press: () {},
+                      image: demoPopularProducts[index].image,
+                      title: demoPopularProducts[index].title,
+                      brandName: demoPopularProducts[index].brandName,
+                      price: demoPopularProducts[index].price,
+                      priceAfetDiscount:
+                          demoPopularProducts[index].priceAfetDiscount,
+                      dicountpercent: demoPopularProducts[index].dicountpercent,
+                      press: () {
+                        // Điều hướng tới màn hình chi tiết sản phẩm
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ProductDetailsScreen(
+                              isProductAvailable: true,
+                            ),
+                          ),
+                        );
+                      },
                     ),
                   ),
                 ),

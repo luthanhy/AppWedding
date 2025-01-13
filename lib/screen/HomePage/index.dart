@@ -64,7 +64,7 @@ class HomeScreen extends StatelessWidget {
                 ],
               ),
             ),
-            const SliverToBoxAdapter(child: BestSellers()),
+            // const SliverToBoxAdapter(child: BestSellers()),
           ],
         ),
       ),

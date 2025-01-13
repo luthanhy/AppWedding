@@ -14,6 +14,8 @@ const productDemoImg5 =
 const productDemoImg6 =
     "https://w.ladicdn.com/66cb3f3af913d20011c3173a/album_6-20250113073546-_4306.jpg";
 
+const productDemoImg9 =
+    "https://w.ladicdn.com/66cb3f3af913d20011c3173a/album_6-20250113073546-_4306.jpg";
 // End For demo
 
 const grandisExtendedFont = "Grandis Extended";

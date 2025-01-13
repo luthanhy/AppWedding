@@ -74,7 +74,7 @@ class WelcomeView extends StatelessWidget {
                 position: _welcomeFirstHalfAnimation,
                 child: Text(
                   "Chào Mừng Bạn Đến Với Chúng Tôi",
-                  style: TextStyle(fontSize: 25.0, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
                 ),
               ),
               Padding(
