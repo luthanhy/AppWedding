@@ -49,7 +49,8 @@ List<ProductModel> demoPopularProducts = [
     dicountpercent: 5,
   ),
   ProductModel(
-    image: "https://i.imgur.com/tXyOMMG.png",
+    image:
+        "https://w.ladicdn.com/66cb3f3af913d20011c3173a/album_7-20250113073910-g0ypg.jpg",
     title: "Green Poplin Ruched Front",
     brandName: "Lipsy london",
     price: 650.62,
@@ -57,7 +58,8 @@ List<ProductModel> demoPopularProducts = [
     dicountpercent: 40,
   ),
   ProductModel(
-    image: "https://i.imgur.com/h2LqppX.png",
+    image:
+        "https://w.ladicdn.com/66cb3f3af913d20011c3173a/album_8-20250113074007-vx5sz.jpg",
     title: "white satin corset top",
     brandName: "Lipsy london",
     price: 1264,
@@ -93,7 +95,8 @@ List<ProductModel> demoFlashSaleProducts = [
 ];
 List<ProductModel> demoBestSellersProducts = [
   ProductModel(
-    image: "https://i.imgur.com/tXyOMMG.png",
+    image:
+        "https://w.ladicdn.com/66cb3f3af913d20011c3173a/album_7-20250113073910-g0ypg.jpg",
     title: "Green Poplin Ruched Front",
     brandName: "Lipsy london",
     price: 650.62,
@@ -101,7 +104,8 @@ List<ProductModel> demoBestSellersProducts = [
     dicountpercent: 40,
   ),
   ProductModel(
-    image: "https://i.imgur.com/h2LqppX.png",
+    image:
+        "https://w.ladicdn.com/66cb3f3af913d20011c3173a/album_8-20250113074007-vx5sz.jpg",
     title: "white satin corset top",
     brandName: "Lipsy london",
     price: 1264,

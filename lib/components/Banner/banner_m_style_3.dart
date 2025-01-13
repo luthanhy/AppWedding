@@ -9,7 +9,8 @@ import 'package:appwedding/constants.dart';
 class BannerMStyle3 extends StatelessWidget {
   const BannerMStyle3({
     super.key,
-    this.image = "assets/introduction_animation/Banner2.jpg",
+    this.image =
+        "https://w.ladicdn.com/66cb3f3af913d20011c3173a/banner2-20250113064427-dmcrg.jpg",
     required this.title,
     required this.press,
     required this.discountParcent,
