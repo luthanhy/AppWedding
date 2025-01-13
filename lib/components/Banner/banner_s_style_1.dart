@@ -8,7 +8,7 @@ import './banner_s.dart';
 class BannerSStyle1 extends StatelessWidget {
   const BannerSStyle1({
     super.key,
-    this.image = "../../../assets/introduction_animation/stylebanner1.jpg",
+    this.image = "assets/introduction_animation/stylebanner1.jpg",
     required this.title,
     required this.press,
     this.subtitle,
