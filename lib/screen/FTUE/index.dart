@@ -8,6 +8,7 @@ import 'package:appwedding/components/FTUE/relaxview.dart';
 import 'package:appwedding/components/FTUE/splashWiew.dart';
 import 'package:flutter/material.dart';
 import 'package:appwedding/route/route_constants.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class IntroductionAnimationScreen extends StatefulWidget {
   const IntroductionAnimationScreen({super.key});
@@ -97,7 +98,7 @@ class _IntroductionAnimationScreenState
     }
   }
 
-  void _onNextClick() {
+   void _onNextClick() {
     if (_animationController!.value >= 0 &&
         _animationController!.value <= 0.2) {
       _animationController?.animateTo(0.4);
@@ -109,11 +110,16 @@ class _IntroductionAnimationScreenState
       _animationController?.animateTo(0.8);
     } else if (_animationController!.value > 0.6 &&
         _animationController!.value <= 0.8) {
+      setvalue();
       _signUpClick();
     }
   }
-
+  void setvalue ()async{
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setBool('isFTUE', true);
+  }
   void _signUpClick() {
-    Navigator.pushNamed(context, entryPointScreenRoute);
+
+    Navigator.pushReplacementNamed(context, entryPointScreenRoute);
   }
 }

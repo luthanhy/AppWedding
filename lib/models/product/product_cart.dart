@@ -4,6 +4,7 @@ import '../../constants.dart';
 class ProductModel {
   final String image, brandName, title;
   final double price;
+  final String? description;
   final double? priceAfetDiscount;
   final int? dicountpercent;
 
@@ -12,6 +13,7 @@ class ProductModel {
     required this.brandName,
     required this.title,
     required this.price,
+    this.description,
     this.priceAfetDiscount,
     this.dicountpercent,
   });
@@ -21,10 +23,20 @@ class ProductModel {
       image: json['image'] ?? '',
       title: json['title'] ?? '',
       brandName: json['brandName'] ?? '',
+      description: json['description'] ?? '',
       price: json['price']?.toDouble() ?? 0.0,
       priceAfetDiscount: json['priceAfetDiscount']?.toDouble() ?? 0.0,
       dicountpercent: json['dicountpercent'] ?? 0,
     );
+  }
+  Map<String, dynamic> toJson() {
+    return {
+      'title': title,
+      'brandName': brandName,
+      'price': price,
+      'image': image,
+      'description': description,
+    };
   }
 }
 

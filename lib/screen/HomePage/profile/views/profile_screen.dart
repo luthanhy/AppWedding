@@ -71,6 +71,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               text: "Orders",
               svgSrc: "assets/icons/Order.svg",
               press: () {
+                Navigator.pushNamed(context, OrderScreenRoute);
                 // Navigator.pushNamed(context, ordersScreenRoute);
               },
             ),
@@ -93,7 +94,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             text: "Language",
             svgSrc: "assets/icons/Language.svg",
             press: () {
-              // Navigator.pushNamed(context, selectLanguageScreenRoute);
+              Navigator.pushNamed(context, LanguageSelectionScreenRoute);
             },
           ),
           const SizedBox(height: defaultPadding),

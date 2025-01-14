@@ -41,7 +41,7 @@ class _SignUpFormState extends State<SignUpForm> {
           const SnackBar(content: Text('created successfully')),
 
         );
-        Navigator.pushNamed(context, loginScreenRoute);
+        Navigator.pushReplacementNamed(context, loginScreenRoute);
       }else{
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(

@@ -6,7 +6,7 @@ class ApiService {
     final Dio _dio = Dio();
 
   // Địa chỉ API của bạn
-  final String baseUrl = 'https://ce97-42-115-94-145.ngrok-free.app/abcd-4b368/us-central1/GetAllProduct';
+  final String baseUrl = 'https://e3ad-171-251-221-117.ngrok-free.app/abcd-4b368/us-central1/GetAllProduct';
 
   // Lấy danh sách sản phẩm
   Future<List<ProductModel>> getAllProducts() async {

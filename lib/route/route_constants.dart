@@ -9,3 +9,5 @@ const String loginScreenRoute = "Login";
 const String introductionAnimationScreenroute = 'ftue';
 const String entryPointScreenRoute = 'entry_point';
 const String WebViewScreenRoute = 'webview' ;
+const String OrderScreenRoute = 'Order' ;
+const String LanguageSelectionScreenRoute = 'LanguageSelection';

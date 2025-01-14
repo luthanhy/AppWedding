@@ -10,7 +10,7 @@ class AuthController with ChangeNotifier {
   // Function đăng nhập (Login)
   Future<String> login(String username, String password) async {
     try {
-      final response = await _dio.post('https://ce97-42-115-94-145.ngrok-free.app/abcd-4b368/us-central1/LoginService', data: jsonEncode({
+      final response = await _dio.post('https://e3ad-171-251-221-117.ngrok-free.app/abcd-4b368/us-central1/LoginService', data: jsonEncode({
         'email': username,
         'password': password,
       }),);
@@ -38,7 +38,7 @@ class AuthController with ChangeNotifier {
   // Function đăng xuất (Logout)
   Future<void> logout() async {
     try {
-      final response = await _dio.post('https://ce97-42-115-94-145.ngrok-free.app/abcd-4b368/us-central1/logout');
+      final response = await _dio.post('https://e3ad-171-251-221-117.ngrok-free.app/abcd-4b368/us-central1/logout');
 
       if (response.statusCode != 200) {
         throw Exception('Failed to log out');
@@ -51,7 +51,7 @@ class AuthController with ChangeNotifier {
   // Function đăng ký (SignUp)
   Future<String> signUp(String username, String email, String password) async {
     try {
-      final response = await _dio.post('https://ce97-42-115-94-145.ngrok-free.app/abcd-4b368/us-central1/RegisterAcount', data: jsonEncode({
+      final response = await _dio.post('https://e3ad-171-251-221-117.ngrok-free.app/abcd-4b368/us-central1/RegisterAcount', data: jsonEncode({
         'username':username,
         'email': email,
         'password': password,
@@ -70,7 +70,7 @@ class AuthController with ChangeNotifier {
   }
   Future<User> getUserByEmail(String email) async {
       try{
-        final response = await _dio.post('https://ce97-42-115-94-145.ngrok-free.app/abcd-4b368/us-central1/GetUserInfoByEmail', data: jsonEncode({
+        final response = await _dio.post('https://e3ad-171-251-221-117.ngrok-free.app/abcd-4b368/us-central1/GetUserInfoByEmail', data: jsonEncode({
           'email': email,
         }),);
         if(response.data['success'] == true){

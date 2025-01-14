@@ -4,6 +4,7 @@ import 'package:appwedding/constants.dart';
 class ProductModel {
   final String image, brandName, title;
   final double price;
+  final String? description;
   final double? priceAfetDiscount;
   final int? dicountpercent;
 
@@ -12,6 +13,7 @@ class ProductModel {
     required this.brandName,
     required this.title,
     required this.price,
+    this.description,
     this.priceAfetDiscount,
     this.dicountpercent,
   });

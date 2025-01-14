@@ -26,8 +26,6 @@ class _LoginFormState extends State<LoginForm> {
       _isLoading = true;
     });
     try {
-      print(_emailController.text);
-      print(_passwordController.text);
       final result =  await _authController.login(
         _emailController.text,
         _passwordController.text,
@@ -36,11 +34,17 @@ class _LoginFormState extends State<LoginForm> {
         final prefs = await SharedPreferences.getInstance();
         await prefs.setBool('isLogin', true);
 
+        await prefs.setString('emailLogin',_emailController.text );
+
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(content: Text('Login successful!')),
 
     );
-        Navigator.pushNamed(context, entryPointScreenRoute);
+        Navigator.pushNamedAndRemoveUntil(
+          context,
+          entryPointScreenRoute,
+              (Route<dynamic> route) => false, // Xóa tất cả các route trước đó
+        );
       }else{
         print(result);
         ScaffoldMessenger.of(context).showSnackBar(

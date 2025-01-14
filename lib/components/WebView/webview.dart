@@ -37,12 +37,12 @@ class WebViewScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Custom Browser Example'),
+        title: const Text('Chuyển Hướng Thanh Toán'),
       ),
       body: Center(
         child: ElevatedButton(
           onPressed: () => _launchCustomTab(context), // Gọi hàm mở trình duyệt khi ấn nút
-          child: const Text('Open Web Page'),
+          child: const Text('Thanh Toán'),
         ),
       ),
     );

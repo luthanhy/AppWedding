@@ -45,11 +45,11 @@ class ProductInfo extends StatelessWidget {
                 const Spacer(),
                 SvgPicture.asset("assets/icons/Star_filled.svg"),
                 const SizedBox(width: defaultPadding / 4),
-                Text(
-                  "$rating ",
-                  style: Theme.of(context).textTheme.bodyLarge,
-                ),
-                Text("($numOfReviews Reviews)")
+                // Text(
+                //   "$rating ",
+                //   style: Theme.of(context).textTheme.bodyLarge,
+                // ),
+                // Text("($numOfReviews Reviews)")
               ],
             ),
             const SizedBox(height: defaultPadding),

@@ -79,25 +79,3 @@ const pasNotMatchErrorText = "passwords do not match";
 const kPrimaryColor = Color(0xFF6F35A5);
 const kPrimaryLightColor = Color(0xFFF1E6FF);
 
-
-List<Product> demoProducts = [
-  Product(
-    title: "Thiệp Cưới Cổ Điển",
-    image: "assets/images/product_demo_1.jpg",  // Đặt hình ảnh sản phẩm
-    brandName: "Brand 1",
-    price: 140.0,
-    priceAfterDiscount: 120.0,
-    discountPercent: 10,
-    isAvailable: true,
-  ),
-  Product(
-    title: "Thiệp Cưới Đơn Giản",
-    image: "assets/images/product_demo_2.jpg",  // Hình ảnh sản phẩm khác
-    brandName: "Brand 2",
-    price: 100.0,
-    priceAfterDiscount: 85.0,
-    discountPercent: 15,
-    isAvailable: true,
-  ),
-  // Thêm sản phẩm mẫu nếu cần
-];

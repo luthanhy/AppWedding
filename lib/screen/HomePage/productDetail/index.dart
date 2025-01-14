@@ -11,9 +11,10 @@ import 'package:appwedding/models/product/product.dart';
 import 'package:appwedding/controllers/product_controller.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:appwedding/services/BookmarkManager.dart';
 
 class ProductDetailsScreen extends StatelessWidget {
-  const ProductDetailsScreen({
+   ProductDetailsScreen({
     super.key,
     this.isProductAvailable = true,
     required this.productIndex, // Nhận index sản phẩm làm tham số
@@ -22,44 +23,50 @@ class ProductDetailsScreen extends StatelessWidget {
   final bool isProductAvailable;
   final int productIndex; // Chỉ số sản phẩm được truyền vào
 
+  final BookMarkManager _bookmarkManager = BookMarkManager(); // Quản lý bookmark
+
   Future<bool> _isUserLoggedIn() async {
     final prefs = await SharedPreferences.getInstance();
     return prefs.getBool('isLogin') ?? false;
   }
 
-
+  Future<String> _getEmail() async {
+    final prefs = await SharedPreferences.getInstance();
+    return prefs.getString('emailLogin') ?? '';
+  }
 
   @override
   Widget build(BuildContext context) {
     ProductController productController = Get.put(ProductController());
 
     return Obx(() {
-      // Kiểm tra trạng thái khi danh sách sản phẩm còn trống
       if (productController.products.isEmpty) {
-        return const Center(child: CircularProgressIndicator());  // Hiển thị loading nếu sản phẩm trống
+        return const Center(child: CircularProgressIndicator());
       }
 
-      final product = productController.products[productIndex]; // Lấy sản phẩm theo chỉ số từ productController
+      final product = productController.products[productIndex];
 
       return Scaffold(
         bottomNavigationBar: CartButton(
           price: product.price,
           press: () async {
             final isLoggedIn = await _isUserLoggedIn();
+            final email = await _getEmail();
+            final nameProduct = product.brandName;
+            final url = Uri.encodeFull(
+              "https://ad06-42-115-94-145.ngrok-free.app/order/create_payment_url?amount=${Uri.encodeQueryComponent(product.price.toString())}&email==${Uri.encodeQueryComponent(email)}&email==${Uri.encodeQueryComponent(nameProduct.toString())}",
+            );
             if (isLoggedIn) {
               Navigator.pushNamed(
                 context,
                 WebViewScreenRoute,
-                arguments: "https://8160-42-115-94-145.ngrok-free.app/order/create_payment_url",
+                arguments: url,
               );
             } else {
               ScaffoldMessenger.of(context).showSnackBar(
                 const SnackBar(content: Text('Vui Lòng Đăng Nhập Trước Khi Thanh Toán')),
               );
-              Navigator.pushNamed(
-                context,
-                  loginScreenRoute
-              );
+              Navigator.pushNamed(context, loginScreenRoute);
             }
           },
         ),
@@ -71,28 +78,44 @@ class ProductDetailsScreen extends StatelessWidget {
                 floating: true,
                 actions: [
                   IconButton(
-                    onPressed: () {},
-                    icon: SvgPicture.asset("assets/icons/Bookmark.svg",
-                        color: Theme.of(context).textTheme.bodyLarge!.color),
+                    onPressed: () {
+                      if (_bookmarkManager.isBookmarked(product)) {
+                        _bookmarkManager.removeBookmark(product);
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(content: Text('Đã xóa khỏi bookmark')),
+                        );
+                      } else {
+                        _bookmarkManager.addBookmark(product);
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(content: Text('Đã thêm vào bookmark')),
+                        );
+                      }
+                    },
+                    icon: SvgPicture.asset(
+                      "assets/icons/Bookmark.svg",
+                      color: _bookmarkManager.isBookmarked(product)
+                          ? Colors.red
+                          : Theme.of(context).textTheme.bodyLarge!.color,
+                    ),
                   ),
                 ],
               ),
               ProductImages(
-                images: [product.image], // Dùng hình ảnh từ sản phẩm
+                images: [product.image],
               ),
               ProductInfo(
                 brand: product.brandName,
                 title: product.title,
                 isAvailable: isProductAvailable,
-                description: "",//product.description ??, // Mô tả sản phẩm
-                rating:4.4,// product.rating ?? 4.4,  // Đánh giá sản phẩm
-                numOfReviews: 126//product.numOfReviews ?? 126, // Số đánh giá
+                description: product.description ?? "",
+                rating: 4.4,
+                numOfReviews: 126,
               ),
               SliverPadding(
                 padding: const EdgeInsets.all(defaultPadding),
                 sliver: SliverToBoxAdapter(
                   child: Text(
-                    "You may like these products",
+                    "Các mẫu tham khảo",
                     style: Theme.of(context).textTheme.titleSmall!,
                   ),
                 ),
@@ -102,9 +125,9 @@ class ProductDetailsScreen extends StatelessWidget {
                   height: 220,
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
-                    itemCount: productController.products.length, // Dùng demoProducts để lặp qua sản phẩm
+                    itemCount: productController.products.length,
                     itemBuilder: (context, index) {
-                      var product = productController.products[index]; // Lấy sản phẩm
+                      var product = productController.products[index];
                       return Padding(
                         padding: EdgeInsets.only(
                             left: defaultPadding,
@@ -124,7 +147,7 @@ class ProductDetailsScreen extends StatelessWidget {
                               MaterialPageRoute(
                                 builder: (context) => ProductDetailsScreen(
                                   isProductAvailable: true,
-                                  productIndex: index, // Truyền chỉ số sản phẩm vào
+                                  productIndex: index,
                                 ),
                               ),
                             );

@@ -66,7 +66,14 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return MaterialPageRoute(
         builder: (context) => const UserInfoScreen(),
       );
-
+    case OrderScreenRoute:
+      return MaterialPageRoute(
+        builder: (context) => const OrderScreen(),
+      );
+    case LanguageSelectionScreenRoute:
+      return MaterialPageRoute(
+        builder: (context) =>  LanguageSelectionScreen(),
+      );
     default:
       return MaterialPageRoute(
         // Make a screen for undefine
